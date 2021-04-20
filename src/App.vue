@@ -1,26 +1,28 @@
+
 <template>
-  <div class="container">
-    <h1 class="mh1">Good moring user</h1>
+  <div class="container mx-auto pt-12">
+    <h1 class="mh1">Good morning user</h1>
+
     <div>
-      <div class="elementPositioner">
+      <div class=" element">
         <Weather />
       </div>
-      <div class="elementPositioner">
-       <Weather />
+      <div class=" element">
+       <Notes />
       </div>
-      <div class="elementPositioner">
-        <Weather />
+      <div class=" element">
+        <Notes />
       </div>
     </div>
     <div>
-      <div class="elementPositioner">
-        <Weather />
+      <div class=" element">
+        <Notes />
       </div>
-      <div class="elementPositioner">
-       <Weather />
+      <div class=" element">
+        <Notes />
       </div>
-      <div class="elementPositioner">
-        <Weather />
+      <div class=" element">
+        <Notes />
       </div>
     </div>
   </div>
@@ -28,45 +30,66 @@
 
 <script>
 import Weather from './components/Weather.vue'
+import Notes from './components/Notes.vue'
 
 export default {
   name: 'App',
   components: {
-    Weather
-  }
+    Weather,
+    Notes
+  },
+  data() {
+                return {
+                competencies: null
+                }
+            },
+            created: function(){
+                //sprawdzenie czy użytkownik zalogowany
+                //if not then go to welcomePage
+            }
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 * {
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  
+  position: relative;
+  width: 1920px;
+  height: 1080px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #87CEFA;
-  color: white;
-}
-body {
-  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(252.44deg, #5FD2C4 0%, rgba(0, 167, 255, 0.67) 99.99%, rgba(0, 148, 255, 0) 100%, #0094FF 100%);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 40px;
+  color: black;
+  max-width: 100%;
+  
 }
 .container {
   max-width: 100%;
   margin: 30px auto;
   overflow: auto;
-  min-height: 300px;
+  height:auto;
   padding: auto;
   position: fixed;
   
 }
+.element::-webkit-scrollbar {
+  display: none;
+}
 .element {
   margin: 30px auto;
-  background: rgba(250,250,250,0.5);
   overflow: auto;
-  min-height: 300px;
-  padding: 40px;
+  width: 500px;
+  background: rgba(250,250,250,1);
+  height: 300px;
   border-radius: 49px;
-}
-.elementPositioner{
+  font-size: 30px;
   float:left;
   margin: 30px;
 }
