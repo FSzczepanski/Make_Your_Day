@@ -1,5 +1,5 @@
 <template>
-    <h2 style="margin-top: 20px;">Weather</h2>
+<h2 style="margin-top: 20px;">Articles</h2>
     <ul id="list-rendering">
             <li v-for="item in notes" v-bind:key="item" class="weather">
                 <div class="card-body weather">

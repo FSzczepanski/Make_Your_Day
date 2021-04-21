@@ -1,13 +1,11 @@
 <template>
-     <div class="hello" style="justify-content: center; display: flex">
-        <h1>Welcome to Your Day</h1>
-     </div>
-        <div class="hello" style="justify-content: center; display: flex; font-size:45px; ">
-            <router-link to="/register" >
-            <button id="myButton" class="btn" >Register</button>
-        </router-link>
-        <router-link to="/login" >
-            <button id="myButton" class="btn">Login</button>
+    <div class="hello" style="justify-content: center; display: flex ">
+        <h1>Oops, it looks like the page you're looking for doesn't exist.</h1>
+        
+    </div>
+    <div style="justify-content: center; display: flex; margin-top:20px;">
+    <router-link to="/" >
+            <button id="myButton" class="btn">Go back to Main Page!</button>
         </router-link>
     </div>
 </template>

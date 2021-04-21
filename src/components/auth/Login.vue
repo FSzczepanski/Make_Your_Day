@@ -1,14 +1,6 @@
 <template>
-     <div class="hello" style="justify-content: center; display: flex">
-        <h1>Welcome to Your Day</h1>
-     </div>
-        <div class="hello" style="justify-content: center; display: flex; font-size:45px; ">
-            <router-link to="/register" >
-            <button id="myButton" class="btn" >Register</button>
-        </router-link>
-        <router-link to="/login" >
-            <button id="myButton" class="btn">Login</button>
-        </router-link>
+    <div class="hello">
+        <h1>Login to Your Day</h1>
     </div>
 </template>
 

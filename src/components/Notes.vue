@@ -1,13 +1,13 @@
 <template>
+<h2 style="margin-top: 20px;">Quick note</h2>
     <ul id="list-rendering">
             <li v-for="item in notes" v-bind:key="item" class="weather">
-            <div class="card" style="width: 18rem; " >
                 <div class="card-body weather">
                 <h5 class="card-title text-center">{{item.name}}</h5>
                 <p class="card-text">{{item.text}}</p>
                 <p class="card-text">{{item.date}}</p>
                 </div>
-            </div>
+            
          </li>
     </ul>
 </template>
@@ -36,6 +36,6 @@ export default({
 
 <style scoped>
     .weather{
-        background: rgba(250,250,250,1);
+        font-size: 15px;
     }
 </style>

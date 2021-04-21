@@ -1,52 +1,24 @@
 
 <template>
   <div class="container mx-auto pt-12">
-    <h1 class="mh1">Good morning user</h1>
+    
 
-    <div>
-      <div class=" element">
-        <Weather />
-      </div>
-      <div class=" element">
-       <Notes />
-      </div>
-      <div class=" element">
-        <Notes />
-      </div>
+  <div id="nav">
+      
     </div>
-    <div>
-      <div class=" element">
-        <Notes />
-      </div>
-      <div class=" element">
-        <Notes />
-      </div>
-      <div class=" element">
-        <Notes />
-      </div>
-    </div>
+  <router-view />
+
   </div>
 </template>
 
 <script>
-import Weather from './components/Weather.vue'
-import Notes from './components/Notes.vue'
+
 
 export default {
   name: 'App',
   components: {
-    Weather,
-    Notes
-  },
-  data() {
-                return {
-                competencies: null
-                }
-            },
-            created: function(){
-                //sprawdzenie czy użytkownik zalogowany
-                //if not then go to welcomePage
-            }
+   
+  }
 }
 </script>
 
@@ -59,22 +31,24 @@ body {
   
   position: relative;
   width: 1920px;
-  height: 1080px;
+  height: 880px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: linear-gradient(252.44deg, #5FD2C4 0%, rgba(0, 167, 255, 0.67) 99.99%, rgba(0, 148, 255, 0) 100%, #0094FF 100%);
+  background: linear-gradient(252.44deg, #5FD2C4 10%, rgba(0, 167, 255, 0.67) 99.99%, rgba(139, 21, 124, 0) 100%, #672991 100%);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 40px;
-  color: black;
+  color: white;
   max-width: 100%;
   
 }
 .container {
+  
   max-width: 100%;
   margin: 30px auto;
   overflow: auto;
   height:auto;
+  align-content: center;
   padding: auto;
   position: fixed;
   
@@ -83,33 +57,41 @@ body {
   display: none;
 }
 .element {
+  display: flex;
+justify-content: center;
   margin: 30px auto;
   overflow: auto;
-  width: 500px;
-  background: rgba(250,250,250,1);
+  width: 560px;
+  background: rgba(250,250,250,0.5);
   height: 300px;
   border-radius: 49px;
   font-size: 30px;
-  float:left;
+  
   margin: 30px;
 }
+.elementFloat{
+  float:left;
+}
+
 
 .mh1{
-  text-align: center;
-   font-size: 42px;
+  text-align: left;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+   font-size: 52px;
 }
 .btn {
   display: inline-block;
-  background: #000;
-  color: #fff;
+  background: rgb(143, 118, 204);
+  color: rgb(238, 234, 238);
   border: none;
   padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
+  font-size: 18px;
 }
 .btn:focus {
   outline: none;

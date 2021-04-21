@@ -1,5 +1,6 @@
 <template>
-    <h2 style="margin-top: 20px;">Weather</h2>
+<h2 style="margin-top: 20px;">13:30 </h2>
+<h3 style="margin-top: 20px;"> 13 Czerwca 2021</h3>
     <ul id="list-rendering">
             <li v-for="item in notes" v-bind:key="item" class="weather">
                 <div class="card-body weather">
