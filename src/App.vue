@@ -2,10 +2,6 @@
 <template>
   <div class="container mx-auto pt-12">
     
-
-  <div id="nav">
-      
-    </div>
   <router-view />
 
   </div>
@@ -23,7 +19,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fnts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 * {
   font-family: 'Poppins', sans-serif;
 }
