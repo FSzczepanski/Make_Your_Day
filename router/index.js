@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Welcome from '../src/components/auth/WelcomePage.vue'
 import Register from '../src/components/auth/Register.vue'
+import RegisterCheck from '../src/components/auth/RegisterCheck.vue'
 import Login from '../src/components/auth/Login.vue'
 import MainPage from '../src/MainPage.vue'
 import NotFound from '../src/components/NotFound.vue'
@@ -15,6 +16,11 @@ const routes=[
         path: '/welcome',
         name: 'Welcome',
         component: Welcome
+    },
+    {
+        path: '/register/check',
+        name: 'RegisterCheck',
+        component: RegisterCheck
     },
     {
         path: '/register',
