@@ -1,24 +1,6 @@
 # make-your-day
 
-## Project setup
-```
-npm install
-```
+Frontent pisany w vue dla rest api Your Day.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ * Prototyp
+![Przechwytywanie](https://user-images.githubusercontent.com/61236736/118095733-b9ff0700-b3d0-11eb-9881-f78f4c1e7cfe.PNG)
