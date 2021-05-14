@@ -29,7 +29,7 @@ export default({
                 fetch("http://localhost:3000/quote", {
                 method: 'get',
                 headers: {
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                    'auth-token': localStorage.getItem('token')
                     }
                 })
                 .then(response => response.json())

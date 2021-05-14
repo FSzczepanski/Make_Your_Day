@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto pt-12">
+    <div v-if="loggedIn">
 
     <!-- dialog add todo -->
     <transition name="slide-fade">
@@ -28,11 +29,12 @@
    </transition>
         <h1 class="mh1">Good morning user</h1>
         <router-link to="/welcome" style="float: right; margin-top:-90px; margin-right: 20px;" >
-                <button id="LogoutBtn" class="btn" >Logout</button>
+                <button id="LogoutBtn" class="btn" @click="logout()" >Logout</button>
             </router-link>
     
 
 
+  
     <div style="float: left">
       <div class=" element" style="height:200px">
         <Weather />
@@ -67,6 +69,18 @@
   
 
         
+  </div>
+  <div v-if="!loggedIn">
+    <div class="hello" style="display: flex; justify-content: center; margin-top: 130px;">
+            <h2>Session ended</h2>
+        </div>
+        
+        <div class="hello" style="display: flex; justify-content: center;">
+            <router-link to="/login" >
+                <button id="myButton" class="btn">Go to login page</button>
+            </router-link>
+        </div>
+  </div>
     </div>
   
 </template>
@@ -93,12 +107,16 @@ export default {
   data() {
                 return {
                 isHiddenTodos: true,
-                isHiddenPosts: true
+                isHiddenPosts: true,
+                loggedIn: true
                 }
             },
             created: function(){
+              //alert(localStorage.getItem('token'));
                 //sprawdzenie czy użytkownik zalogowany
-                //if not then go to welcomePage
+                if(localStorage.getItem('token')==null){
+                    this.loggedIn = false;
+                }
             },
             methods: {
               postPost(postDesc) {
@@ -108,7 +126,7 @@ export default {
                   method: 'post',
                   headers: {
                     "Content-Type": "application/json",
-                      'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                      'auth-token': localStorage.getItem('token')
                       },
                   body: JSON.stringify({ text: postDesc })
                 })
@@ -136,35 +154,36 @@ export default {
               
 
               postTodo(todoDesc){
-                alert('Hello ' + todoDesc);
+                      alert('Hello ' + todoDesc);
 
-                const requestOptions = {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json",
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
-                    },
-                body: JSON.stringify({ text: todoDesc })
-              };
-              fetch("http://localhost:3000/note", requestOptions)
-                .then(async response => {
-                const data = await response.json();
-                
-                // check for error response
-                if (!response.ok) {
-                  // get error message from body or default to response status
-                  const error = (data && data.message) || response.status;
-                  return Promise.reject(error);
+                      const requestOptions = {
+                      method: "post",
+                      headers: {
+                          "Content-Type": "application/json",
+                          'auth-token': localStorage.getItem('token')
+                          },
+                      body: JSON.stringify({ text: todoDesc })
+                      };
+                    fetch("http://localhost:3000/note", requestOptions)
+                      .then(async response => {
+                      const data = await response.json();
+                      
+                      // check for error response
+                      if (!response.ok) {
+                        // get error message from body or default to response status
+                        const error = (data && data.message) || response.status;
+                        return Promise.reject(error);
 
-                }else{
-                  this.rerender();
-                }
+                      }else{
+                        this.rerender();
+                      }
 
-              })
-              .catch(error => {
-                this.errorMessage = error;
-                console.error('There was an error!', error);
-              });
+                    })
+                    .catch(error => {
+                      this.errorMessage = error;
+                      console.error('There was an error!', error);
+                    });
+                    
               },
               rerender(){
                 this.show = false
@@ -175,9 +194,13 @@ export default {
                         console.log('re-render end')
                     })
                 })
+            },
+            logout(){
+              localStorage.removeItem('token');
             }
+          }
               
-            }
+       
 }
 </script>
 

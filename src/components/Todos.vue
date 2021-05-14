@@ -58,7 +58,7 @@ export default({
                 fetch("http://localhost:3000/note", {
                 method: 'get',
                 headers: {
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                    'auth-token': localStorage.getItem('token')
                     }
                 })
                 .then(response => response.json())
@@ -69,7 +69,7 @@ export default({
                   fetch("http://localhost:3000/note/"+id, {
                   method: 'DELETE',
                   headers: {
-                      'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                      'auth-token': localStorage.getItem('token')
                       },
                 })
                 .then(async response => {
@@ -93,7 +93,7 @@ export default({
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                    'auth-token': localStorage.getItem('token')
                     },
                 body: JSON.stringify({ text: postDesc })
               };

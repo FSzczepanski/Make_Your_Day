@@ -55,18 +55,18 @@ export default({
                fetch("http://localhost:3000/post", {
                 method: 'get',
                 headers: {
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                    'auth-token': localStorage.getItem('token')
                     }
                 })
                 .then(response => response.json())
                 .then(notes => this.notes = notes);
             }, methods: {
               deleteTodo(id) {
-                  alert(id)
+                  //alert(id)
                   fetch("http://localhost:3000/post/"+id, {
                   method: 'DELETE',
                   headers: {
-                      'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                      'auth-token': localStorage.getItem('token')
                       },
                 })
                 .then(async response => {
@@ -84,13 +84,13 @@ export default({
                   console.error('There was an error!', error);
                 })
               },editTodo(id, todoDesc){
-                alert(id + todoDesc);
+               // alert(id + todoDesc);
 
                 const requestOptions = {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                    'auth-token': localStorage.getItem('token')
                     },
                 body: JSON.stringify({ text: todoDesc })
               };
@@ -125,7 +125,8 @@ export default({
         width: 460px;
         height: 200px;
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
         margin-right: 110px;
 
          background: rgba(235, 235, 235, 0.4);

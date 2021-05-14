@@ -3,7 +3,7 @@
         <h1>Welcome to Your Day</h1>
      </div>
         <div class="hello" style="justify-content: center; display: flex; font-size:45px; ">
-            <router-link to="/register/check" >
+            <router-link to="/Register" >
             <button id="myButton" class="btn" >Register</button>
         </router-link>
         <router-link to="/login" >

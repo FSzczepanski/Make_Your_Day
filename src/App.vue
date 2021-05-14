@@ -169,5 +169,19 @@ dialog {
   text-decoration: none;
   font-size: 18px;
 }
+
+div.settings {
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+    justify-content: center;
+    margin-right: 75px;
+}
+div.settings label       {
+     text-align:right;
+      }
+div.settings label:after {
+     content: ":";
+      }
 </style>
 
