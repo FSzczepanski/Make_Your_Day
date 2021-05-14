@@ -69,7 +69,7 @@ export default {
 
                
 
-                var currentDate = dat.getDay()+18 +" "+ monthNames[dat.getMonth()]+ " "+ dat.getFullYear();
+                var currentDate = dat.getDay()+9 +" "+ monthNames[dat.getMonth()]+ " "+ dat.getFullYear();
       this.dateTime = {
         hour1: hours1,
          hour2: hours2,

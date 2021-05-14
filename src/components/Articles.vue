@@ -1,31 +1,39 @@
 <template>
-<h2 style="margin-top: 20px;">Articles</h2>
+<div>
+      <div>
     <ul id="list-rendering">
-            <li v-for="item in notes" v-bind:key="item" class="weather">
-                <div class="card-body weather">
-                <h5 class="card-title text-center">{{item.name}}</h5>
-                <p class="card-text">{{item.text}}</p>
-                <p class="card-text">{{item.date}}</p>
-                </div>
-            
-         </li>
+         <div v-for="item in articles" v-bind:key="item" >
+            <div class="card-body newElement ">
+             
+                    <p class="card-text" >{{item.title}}</p>
+                    <p class="card-text" >{{item.description}}</p>
+             </div>
+         </div>
     </ul>
+    </div>
+
+</div>
 </template>
 
 <script>
 
 
 export default({
-            name:'Notes',
+            name:'Articles',
             data() {
                 return {
-                notes: null
+                articles: null
                 }
             },
             created: function(){
-                fetch('http://localhost:3000/admin/invitations')
+                fetch("http://localhost:3000/article", {
+                method: 'get',
+                headers: {
+                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxYmFlZWZhNjAxMzBiZjljZGMyNzQiLCJpYXQiOjE2MTkxNjU4OTR9.fEGJybX62agSG83lFqTNSkc7tm_W0bqXScSge6P5mR8'
+                    }
+                })
                 .then(response => response.json())
-                .then(notes => this.notes = notes);
+                .then(articles => this.articles = articles.articles);
             }
         });
 
@@ -35,7 +43,13 @@ export default({
 
 
 <style scoped>
-    .weather{
-        font-size: 15px;
+    .newElement{
+        font-size: 18px;
+        
+        display: flex;
+        justify-content: center;
+        
+
+         background: rgba(235, 235, 235, 0.4);
     }
 </style>

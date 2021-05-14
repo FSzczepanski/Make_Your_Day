@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: 'Welcome',
+        name: 'NotFound',
         data () {
             return {
                
