@@ -1,6 +1,11 @@
 # make-your-day
 
-Frontent pisany w vue dla rest api Your Day.
+### Frontend (Vue js) oparty na rest api Your Day.
+ 
+* Aplikacja webowa, która jest narzędziem usprawniającym i poprawiającym produktywność w przedsiębiorstwie,
+* Api zwraca pogodę pobieraną z api Openweathermap
+* Api zwraca cytaty i artykuły z zewnętrznych Api
+* Api obłsuguje CRUD postów w sekcji Wall, posty wyświetlane są dla całej organizacji a usuwać może je jedynie admin (panel administratora)
+* Api obsługuje CRUD notatek w sekcji Todos, notatki są prywatne.
 
- * Prototyp
-![Przechwytywanie](https://user-images.githubusercontent.com/61236736/118095733-b9ff0700-b3d0-11eb-9881-f78f4c1e7cfe.PNG)
+![Zrzut ekranu (202)](https://user-images.githubusercontent.com/61236736/121141739-99916380-c83b-11eb-91b3-890f4ee3a13c.png)
